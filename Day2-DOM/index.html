@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 65%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #1e293b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        button:hover {
+            background: #334155;
+        }
+
+        ul {
+            text-align: left;
+            margin-top: 25px;
+            padding-left: 20px;
+        }
+
+        li {
+            background: #f1f5f9;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: #334155;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>🎓 Student List</h2>
+
+        <label for="studentInput">Student Name</label>
+        <input type="text" id="studentInput" name="studentName" placeholder="Enter student name">
+        <button id="addButton"> Add </button>
+
+        <ul id="studentList"></ul>
+
+    </div>
+
+
+    <script>
+
+        const input = document.getElementById("studentInput");
+        const button = document.getElementById("addButton");
+        const list = document.getElementById("studentList");
+
+        button.addEventListener("click", () => {
+
+            const name = input.value;
+            if (name===""){
+                return;
+            }
+
+                // Create a new <li>
+                const li = document.createElement("li");
+
+                // Add entered name to the list
+                li.textContent = name;
+
+                // Add <li> to <ul>
+                list.appendChild(li);
+
+                //Clear the input box
+                input.value ="";
+
+            });
+
+    </script>
+
+</body>
+</html>
